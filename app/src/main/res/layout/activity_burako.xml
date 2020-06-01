@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".BurakoActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6
+"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                style="@style/TeamText"
+                android:hint="Team 1"/>
+
+            <TextView
+                style="@style/BurakoScoreText"
+                android:id="@+id/team_1_score"
+                android:text="0"/>
+
+            <TextView
+                style="@style/ItemsText"
+                android:text="Corte" />
+
+            <EditText
+                android:id="@+id/corteTeam1"
+                style="@style/ScoreImputText"
+                android:hint="1 / 0"
+                android:imeOptions="actionNext"
+                android:inputType="number" />
+
+            <TextView
+                style="@style/ItemsText"
+                android:text="Muerto" />
+
+            <EditText
+                android:id="@+id/muertoTeam1"
+                style="@style/ScoreImputText"
+                android:hint="1 / -1"
+                android:imeOptions="actionNext"
+                android:inputType="numberSigned|number" />
+
+
+            <TextView
+                style="@style/ItemsText"
+                android:text="Canastas Puras" />
+
+            <EditText
+                android:id="@+id/purasTeam1"
+                style="@style/ScoreImputText"
+                android:hint="1"
+                android:imeOptions="actionNext"
+                android:inputType="number" />
+
+
+            <TextView
+                style="@style/ItemsText"
+                android:text="Canastas Impuras" />
+
+            <EditText
+                android:id="@+id/imPurasTeam1"
+                style="@style/ScoreImputText"
+                android:hint="1"
+                android:imeOptions="actionNext"
+                android:inputType="number" />
+
+            <TextView
+                style="@style/ItemsText"
+                android:text="Puntos" />
+
+            <EditText
+                android:id="@+id/puntosTeam1"
+                style="@style/ScoreImputText"
+                android:hint="100"
+                android:imeOptions="actionDone"
+                android:inputType="numberSigned|number" />
+
+            <TextView
+                style="@style/ItemsText"
+                android:text="Subtotal"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/subTotalTeam1"
+                style="@style/ItemsText"
+                android:gravity="center"
+                android:hint="0"
+
+                android:inputType="number"
+                android:textSize="24sp" />
+
+
+<!--            <Button
+                android:id="@+id/aceptarCalcularSubtotalTeam1"
+                style="@style/BurakoButtonEraseText"
+                android:onClick="aceptarCalcularSubtotalTeam1"
+                android:text="Calcular" />-->
+
+            <Button
+                android:id="@+id/aceptarCalcularTotalTeam1"
+                style="@style/BurakoButtonEraseText"
+                android:onClick="aceptarCalcularTotalTeam1"
+                android:text="Confirmar"
+                android:background="@color/colorBotonesBurako"/>
+
+
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                style="@style/TeamText"
+                android:hint="Team 2"/>
+
+            <TextView
+                style="@style/BurakoScoreText"
+                android:id="@+id/team_2_score"
+                android:text="0"/>
+
+            <TextView
+                style="@style/ItemsText"
+                android:text="Corte" />
+
+            <EditText
+                android:id="@+id/corteTeam2"
+                style="@style/ScoreImputText"
+                android:hint="1 / 0"
+                android:imeOptions="actionNext"
+                android:inputType="number" />
+
+            <TextView
+                style="@style/ItemsText"
+                android:text="Muerto" />
+
+            <EditText
+                android:id="@+id/muertoTeam2"
+                style="@style/ScoreImputText"
+                android:hint="1 / -1"
+                android:imeOptions="actionNext"
+                android:inputType="numberSigned|number" />
+
+
+            <TextView
+                style="@style/ItemsText"
+                android:text="Canastas Puras" />
+
+            <EditText
+                android:id="@+id/purasTeam2"
+                style="@style/ScoreImputText"
+                android:hint="1"
+                android:imeOptions="actionNext"
+                android:inputType="number" />
+
+
+            <TextView
+                style="@style/ItemsText"
+                android:text="Canastas Impuras" />
+
+            <EditText
+                android:id="@+id/imPurasTeam2"
+                style="@style/ScoreImputText"
+                android:hint="1"
+                android:imeOptions="actionNext"
+                android:inputType="number" />
+
+            <TextView
+                style="@style/ItemsText"
+                android:text="Puntos" />
+
+            <EditText
+                android:id="@+id/puntosTeam2"
+                style="@style/ScoreImputText"
+                android:hint="100"
+                android:imeOptions="actionDone"
+                android:inputType="numberSigned|number" />
+
+            <TextView
+                style="@style/ItemsText"
+                android:text="Subtotal"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/subTotalTeam2"
+                style="@style/ItemsText"
+                android:gravity="center"
+                android:hint="0"
+                android:inputType="number"
+                android:textSize="24sp"/>
+
+
+<!--            <Button
+                android:id="@+id/aceptarCalcularSubtotalTeam2"
+                style="@style/BurakoButtonEraseText"
+                android:onClick="aceptarCalcularSubtotalTeam2"
+                android:text="Calcular" />-->
+
+            <Button
+                android:id="@+id/aceptarCalcularTotalTeam2"
+                style="@style/BurakoButtonEraseText"
+                android:onClick="aceptarCalcularTotalTeam2"
+                android:text="Confirmar"
+                android:background="@color/colorBotonesBurako"/>
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:onClick="reset"
+            android:text="RESET" />
+
+        <Button
+            android:id="@+id/main"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:onClick="home"
+            android:text="Home" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6
+"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                style="@style/TeamText"
+                 android:hint="Team 1"/>
+
+             <TextView
+                style="@style/ScoreText"
+                android:id="@+id/team_1_score"
+                 android:text="0"/>
+
+            <Button
+                style="@style/ButtonTextTruco"
+                android:onClick="addOneForTeam1"
+                android:text="+1 Points" />
+
+            <Button
+                style="@style/ButtonTextTruco"
+                android:onClick="addTwoForTeam1"
+                android:text="+2 Points" />
+
+            <Button
+                style="@style/ButtonTextTruco"
+                android:onClick="addThreeForTeam1"
+                android:text="+3 Points" />
+
+            <Button
+                style="@style/ButtonTextTruco"
+                android:onClick="addFourForTeam1"
+                android:text="+4 Points" />
+
+            <Button
+                style="@style/ButtonEraseText"
+                android:onClick="restOneForTeam1"
+                android:text="-1 Point" />
+
+
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                style="@style/TeamText"
+                 android:hint="Team 2"/>
+
+            <TextView
+                style="@style/ScoreText"
+                android:id="@+id/team_2_score"
+                android:text="0"/>
+
+            <Button
+                style="@style/ButtonTextTruco"
+                android:onClick="addOneForTeam2"
+                android:text="+1 Points" />
+
+            <Button
+                style="@style/ButtonTextTruco"
+                android:onClick="addTwoForTeam2"
+                android:text="+2 Points" />
+
+            <Button
+                style="@style/ButtonTextTruco"
+                android:onClick="addThreeForTeam2"
+                android:text="+3 Points" />
+
+            <Button
+                style="@style/ButtonTextTruco"
+                android:onClick="addFourForTeam2"
+                android:text="+4 Points" />
+
+            <Button
+                style="@style/ButtonEraseText"
+                android:onClick="restOneForTeam2"
+                android:text="-1 Point" />
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:onClick="reset"
+            android:text="RESET" />
+
+        <Button
+            android:id="@+id/burako"
+            style="@style/ButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:onClick="burako"
+            android:text="Burako" />
+
+    </LinearLayout>
+</LinearLayout>

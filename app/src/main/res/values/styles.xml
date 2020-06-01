@@ -1,0 +1,127 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <!-- <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar"> -->
+
+          <!-- <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>  -->
+
+            <!-- Base application theme. -->
+        <style name="AppTheme" parent="Theme.AppCompat.Light">
+            <!-- Primary theme color of the app (sets background color of app bar) -->
+            <item name="colorPrimary">#D32F2F</item>
+            <!-- color naranja  #FF9800-->
+            <item name="colorPrimaryDark">#9A0007</item>
+            <item name="colorAccent">#FF6659</item>  -->
+            <!-- Background color of buttons in the app -->
+            <item name="colorButtonNormal">#FF6659</item>
+       </style>
+
+
+    <!-- Nombre de los equipos -->
+        <style name="TeamText" parent="Theme.AppCompat.Light">
+            <item name="android:textColor"> #616161</item>
+            <item name="android:textSize">24sp</item>
+            <item name="android:fontFamily">sans-serif-medium</item>
+            <item name="android:background">#00FFEB3B</item>
+            <item name="android:layout_width">match_parent</item>
+            <item name="android:layout_height">wrap_content</item>
+            <item name="android:layout_marginTop">16dp</item>
+            <item name="android:layout_marginBottom">8dp</item>
+            <item name="android:clickable">true</item>
+            <item name="android:cursorVisible">false</item>
+            <item name="android:gravity">center_horizontal</item>
+            <item name="android:inputType">text</item>
+            <item name="android:padding">4dp</item>
+            <item name="android:singleLine">true</item>
+        </style>
+        <style name="ScoreText" parent="Theme.AppCompat.Light">
+            <item name="android:textColor"> #000000</item>
+            <item name="android:textSize">56sp</item>
+            <item name="android:fontFamily">sans-serif-light</item>
+            <item name="android:layout_width">match_parent</item>
+            <item name="android:layout_height">wrap_content</item>
+            <item name="android:layout_marginTop">8dp</item>
+            <item name="android:layout_marginBottom">24dp</item>
+            <item name="android:gravity">center_horizontal</item>
+            <item name="android:padding">4dp</item>
+        </style>
+        <style name="ButtonTextTruco" parent="Theme.AppCompat.Light">
+            <item name="android:layout_width"> match_parent</item>
+            <item name="android:layout_height">wrap_content</item>
+            <item name="android:layout_marginLeft">24dp</item>
+            <item name="android:layout_marginRight">24dp</item>
+            <item name="android:layout_marginBottom">8dp</item>
+            <item name="android:background">@color/colorBotonesTruco</item>
+        </style>
+        <style name="ButtonText" parent="Theme.AppCompat.Light">
+            <item name="android:layout_width"> match_parent</item>
+            <item name="android:layout_height">wrap_content</item>
+            <item name="android:layout_marginLeft">24dp</item>
+            <item name="android:layout_marginRight">24dp</item>
+            <item name="android:layout_marginBottom">8dp</item>
+        </style>
+        <style name="ButtonEraseText" parent="Theme.AppCompat.Light">
+            <item name="android:layout_width"> match_parent</item>
+            <item name="android:layout_height">wrap_content</item>
+            <item name="android:layout_marginLeft">40dp</item>
+            <item name="android:layout_marginTop">32dp</item>
+            <item name="android:layout_marginRight">40dp</item>
+            <item name="android:layout_marginBottom">8dp</item>
+            <item name="android:background">@color/colorClaro</item>
+          </style>
+
+    <!-- BURAKO -->
+    <style name="BurakoTeamText" parent="Theme.AppCompat.Light">
+        <item name="android:textColor"> #616161</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:background">#00FFEB3B</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:inputType">text</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="BurakoScoreText" parent="Theme.AppCompat.Light">
+        <item name="android:textColor"> #000000</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+
+    </style>
+
+        <style name="ItemsText" parent="Theme.AppCompat.Light">
+            <item name="android:layout_width">match_parent</item>
+            <item name="android:layout_height">wrap_content</item>
+            <item name="android:paddingLeft">16dp</item>
+
+
+        </style>
+        <style name="ScoreImputText" parent="Theme.AppCompat.Light">
+            <item name="android:layout_width">match_parent</item>
+            <item name="android:layout_height">wrap_content</item>
+            <item name="android:layout_marginBottom">8dp</item>
+            <item name="android:background">#00FFEB3B</item>
+            <item name="android:clickable">true</item>
+            <item name="android:cursorVisible">false</item>
+            <item name="android:gravity">center_horizontal</item>
+            <item name="android:inputType">number</item>
+            <item name="android:paddingLeft">4dp</item>
+            <item name="android:singleLine">true</item>
+        </style>
+    <style name="BurakoButtonEraseText" parent="Theme.AppCompat.Light">
+        <item name="android:layout_width"> match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">40dp</item>
+        <item name="android:layout_marginRight">40dp</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:background">@color/colorClaro</item>
+    </style>
+</resources>
