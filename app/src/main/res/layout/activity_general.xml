@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".BurakoActivity">
+    tools:context=".GeneralActivity">
 
 
     <LinearLayout
@@ -25,55 +25,10 @@
                 android:hint="Team 1"/>
 
             <TextView
-                style="@style/BurakoScoreText"
+                style="@style/ScoreText"
                 android:id="@+id/team_1_score"
                 android:text="0"/>
 
-            <TextView
-                style="@style/ItemsText"
-                android:text="Corte" />
-
-            <EditText
-                android:id="@+id/corteTeam1"
-                style="@style/ScoreImputText"
-                android:hint="1 / 0"
-                android:imeOptions="actionDone"
-                android:inputType="number" />
-
-            <TextView
-                style="@style/ItemsText"
-                android:text="Muerto" />
-
-            <EditText
-                android:id="@+id/muertoTeam1"
-                style="@style/ScoreImputText"
-                android:hint="1 / -1"
-                android:imeOptions="actionDone"
-                android:inputType="numberSigned|number" />
-
-
-            <TextView
-                style="@style/ItemsText"
-                android:text="Canastas Puras" />
-
-            <EditText
-                android:id="@+id/purasTeam1"
-                style="@style/ScoreImputText"
-                android:hint="1"
-                android:imeOptions="actionDone"
-                android:inputType="number" />
-
-
-            <TextView
-                style="@style/ItemsText"
-                android:text="Canastas Impuras" />
-
-            <EditText
-                android:id="@+id/imPurasTeam1"
-                style="@style/ScoreImputText"
-                android:hint="1"
-                android:imeOptions="actionDone"
-                android:inputType="number" />
 
             <TextView
                 style="@style/ItemsText"
@@ -81,6 +36,19 @@
 
             <EditText
                 android:id="@+id/puntosTeam1"
+                style="@style/ScoreImputText"
+                android:hint="100"
+                android:imeOptions="actionDone"
+                android:inputType="numberSigned|number" />
+
+
+
+            <TextView
+                style="@style/ItemsText"
+                android:text="Puntos Extra" />
+
+            <EditText
+                android:id="@+id/puntosExtraTeam1"
                 style="@style/ScoreImputText"
                 android:hint="100"
                 android:imeOptions="actionDone"
@@ -96,23 +64,15 @@
                 style="@style/ItemsText"
                 android:gravity="center"
                 android:hint="0"
-
                 android:inputType="number"
                 android:textSize="24sp" />
 
-
-<!--            <Button
-                android:id="@+id/aceptarCalcularSubtotalTeam1"
-                style="@style/BurakoButtonEraseText"
-                android:onClick="aceptarCalcularSubtotalTeam1"
-                android:text="Calcular" />-->
-
             <Button
                 android:id="@+id/aceptarCalcularTotalTeam1"
-                style="@style/BurakoButtonEraseText"
+                style="@style/ButtonEraseText"
                 android:onClick="aceptarCalcularTotalTeam1"
                 android:text="Confirmar"
-                android:background="@color/colorBotonesBurako"/>
+                android:background="@color/colorBotonesGeneral"/>
 
 
 
@@ -135,55 +95,10 @@
                 android:hint="Team 2"/>
 
             <TextView
-                style="@style/BurakoScoreText"
+                style="@style/ScoreText"
                 android:id="@+id/team_2_score"
                 android:text="0"/>
 
-            <TextView
-                style="@style/ItemsText"
-                android:text="Corte" />
-
-            <EditText
-                android:id="@+id/corteTeam2"
-                style="@style/ScoreImputText"
-                android:hint="1 / 0"
-                android:imeOptions="actionDone"
-                android:inputType="number" />
-
-            <TextView
-                style="@style/ItemsText"
-                android:text="Muerto" />
-
-            <EditText
-                android:id="@+id/muertoTeam2"
-                style="@style/ScoreImputText"
-                android:hint="1 / -1"
-                android:imeOptions="actionDone"
-                android:inputType="numberSigned|number" />
-
-
-            <TextView
-                style="@style/ItemsText"
-                android:text="Canastas Puras" />
-
-            <EditText
-                android:id="@+id/purasTeam2"
-                style="@style/ScoreImputText"
-                android:hint="1"
-                android:imeOptions="actionDone"
-                android:inputType="number" />
-
-
-            <TextView
-                style="@style/ItemsText"
-                android:text="Canastas Impuras" />
-
-            <EditText
-                android:id="@+id/imPurasTeam2"
-                style="@style/ScoreImputText"
-                android:hint="1"
-                android:imeOptions="actionDone"
-                android:inputType="number" />
 
             <TextView
                 style="@style/ItemsText"
@@ -191,6 +106,17 @@
 
             <EditText
                 android:id="@+id/puntosTeam2"
+                style="@style/ScoreImputText"
+                android:hint="100"
+                android:imeOptions="actionDone"
+                android:inputType="numberSigned|number" />
+
+            <TextView
+                style="@style/ItemsText"
+                android:text="Puntos Extra" />
+
+            <EditText
+                android:id="@+id/puntosExtraTeam2"
                 style="@style/ScoreImputText"
                 android:hint="100"
                 android:imeOptions="actionDone"
@@ -209,19 +135,12 @@
                 android:inputType="number"
                 android:textSize="24sp"/>
 
-
-<!--            <Button
-                android:id="@+id/aceptarCalcularSubtotalTeam2"
-                style="@style/BurakoButtonEraseText"
-                android:onClick="aceptarCalcularSubtotalTeam2"
-                android:text="Calcular" />-->
-
             <Button
                 android:id="@+id/aceptarCalcularTotalTeam2"
-                style="@style/BurakoButtonEraseText"
+                style="@style/ButtonEraseText"
                 android:onClick="aceptarCalcularTotalTeam2"
                 android:text="Confirmar"
-                android:background="@color/colorBotonesBurako"/>
+                android:background="@color/colorBotonesGeneral"/>
 
 
 

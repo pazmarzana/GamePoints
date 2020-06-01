@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void displayForTeam1(int score){
-        TextView scoreView = (TextView) findViewById(R.id.team_1_score);
+        TextView scoreView = findViewById(R.id.team_1_score);
         scoreView.setText(String.valueOf(score));
     }
     public void addOneForTeam1(View v) {
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void displayForTeam2(int score){
-        TextView scoreView = (TextView) findViewById(R.id.team_2_score);
+        TextView scoreView = findViewById(R.id.team_2_score);
         scoreView.setText(String.valueOf(score));
     }
     public void addOneForTeam2(View v) {
@@ -81,6 +81,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+    public void general(View v){
+        Intent intent = new Intent(this, GeneralActivity.class);
+        startActivity(intent);
 
+    }
 
 }

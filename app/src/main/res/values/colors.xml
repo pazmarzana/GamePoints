@@ -6,4 +6,5 @@
     <color name="colorClaro">#fafafa</color>
     <color name="colorBotonesTruco">#FFEE58</color>
     <color name="colorBotonesBurako">#4fc3f7</color>
+    <color name="colorBotonesGeneral">#ff6659</color>
 </resources>
