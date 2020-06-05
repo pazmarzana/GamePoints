@@ -1,260 +1,446 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".BurakoActivity">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="6
-"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <EditText
-                style="@style/TeamText"
-                android:hint="Team 1"/>
-
-            <TextView
-                style="@style/BurakoScoreText"
-                android:id="@+id/team_1_score"
-                android:text="0"/>
-
-            <TextView
-                style="@style/ItemsText"
-                android:text="Corte" />
-
-            <EditText
-                android:id="@+id/corteTeam1"
-                style="@style/ScoreImputText"
-                android:hint="1 / 0"
-                android:imeOptions="actionDone"
-                android:inputType="number" />
-
-            <TextView
-                style="@style/ItemsText"
-                android:text="Muerto" />
-
-            <EditText
-                android:id="@+id/muertoTeam1"
-                style="@style/ScoreImputText"
-                android:hint="1 / -1"
-                android:imeOptions="actionDone"
-                android:inputType="numberSigned|number" />
+    <EditText
+        android:id="@+id/nombreTeam1"
+        style="@style/TeamText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Team 1"
+        app:layout_constraintBaseline_toBaselineOf="@+id/nombreTeam2"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-            <TextView
-                style="@style/ItemsText"
-                android:text="Canastas Puras" />
+    <TextView
+        android:id="@+id/scoreTeam1"
+        style="@style/BurakoScoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/nombreTeam1"
+        app:layout_constraintStart_toStartOf="@+id/nombreTeam1"
+        app:layout_constraintTop_toBottomOf="@+id/nombreTeam1" />
 
-            <EditText
-                android:id="@+id/purasTeam1"
-                style="@style/ScoreImputText"
-                android:hint="1"
-                android:imeOptions="actionDone"
-                android:inputType="number" />
+    <CheckBox
+        android:id="@+id/buttonCorteTeam1"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:background="@drawable/mi_borde"
+        android:onClick="actualizarCorteTeam1"
+        android:text=" CORTE"
+        app:layout_constraintBottom_toTopOf="@+id/buttonMuertoTeam1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline" />
 
+    <CheckBox
+        android:id="@+id/buttonMuertoTeam1"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mi_borde"
+        android:onClick="actualizarMuertoTeam1"
+        android:text=" MUERTO"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPurasMenos1Team1"
+        app:layout_constraintStart_toStartOf="@+id/buttonCorteTeam1"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCorteTeam1" />
 
-            <TextView
-                style="@style/ItemsText"
-                android:text="Canastas Impuras" />
+    <Button
+        android:id="@+id/buttonPurasMenos1Team1"
+        android:layout_width="35dp"
+        android:layout_height="48dp"
+        android:onClick="restaPurasTeam1"
+        android:text="-"
+        app:layout_constraintBottom_toTopOf="@+id/buttonImpurasMenos1Team1"
+        app:layout_constraintStart_toStartOf="@+id/buttonMuertoTeam1"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMuertoTeam1" />
 
-            <EditText
-                android:id="@+id/imPurasTeam1"
-                style="@style/ScoreImputText"
-                android:hint="1"
-                android:imeOptions="actionDone"
-                android:inputType="number" />
+    <Button
+        android:id="@+id/buttonPurasTeam1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sumaPurasTeam1"
+        android:text="PURAS"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonPurasMenos1Team1"
+        app:layout_constraintStart_toEndOf="@+id/buttonPurasMenos1Team1" />
 
-            <TextView
-                style="@style/ItemsText"
-                android:text="Puntos" />
+    <Button
+        android:id="@+id/buttonPurasMas1Team1"
+        android:layout_width="42dp"
+        android:layout_height="48dp"
+        android:onClick="sumaPurasTeam1"
+        android:text="+"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonPurasTeam1"
+        app:layout_constraintStart_toEndOf="@+id/buttonPurasTeam1" />
 
-            <EditText
-                android:id="@+id/puntosTeam1"
-                style="@style/ScoreImputText"
-                android:hint="100"
-                android:imeOptions="actionDone"
-                android:inputType="numberSigned|number" />
+    <Button
+        android:id="@+id/buttonImpurasMenos1Team1"
+        android:layout_width="35dp"
+        android:layout_height="48dp"
+        android:onClick="restaImpurasTeam1"
+        android:text="-"
+        app:layout_constraintBottom_toTopOf="@+id/buttonFichasTeam1"
+        app:layout_constraintStart_toStartOf="@+id/buttonPurasMenos1Team1"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPurasMenos1Team1" />
 
-            <TextView
-                style="@style/ItemsText"
-                android:text="Subtotal"
-                android:textSize="18sp" />
+    <Button
+        android:id="@+id/buttonImpurasTeam1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sumaImpurasTeam1"
+        android:text="IMPURAS"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonImpurasMenos1Team1"
+        app:layout_constraintStart_toEndOf="@+id/buttonPurasMenos1Team1" />
 
-            <TextView
-                android:id="@+id/subTotalTeam1"
-                style="@style/ItemsText"
-                android:gravity="center"
-                android:hint="0"
-
-                android:inputType="number"
-                android:textSize="24sp" />
-
-
-<!--            <Button
-                android:id="@+id/aceptarCalcularSubtotalTeam1"
-                style="@style/BurakoButtonEraseText"
-                android:onClick="aceptarCalcularSubtotalTeam1"
-                android:text="Calcular" />-->
-
-            <Button
-                android:id="@+id/aceptarCalcularTotalTeam1"
-                style="@style/BurakoButtonEraseText"
-                android:onClick="aceptarCalcularTotalTeam1"
-                android:text="Confirmar"
-                android:background="@color/colorBotonesBurako"/>
-
-
-
-        </LinearLayout>
-
-        <View
-            android:id="@+id/divider"
-            android:layout_width="1dp"
-            android:layout_height="wrap_content"
-            android:background="@android:color/darker_gray" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <EditText
-                style="@style/TeamText"
-                android:hint="Team 2"/>
-
-            <TextView
-                style="@style/BurakoScoreText"
-                android:id="@+id/team_2_score"
-                android:text="0"/>
-
-            <TextView
-                style="@style/ItemsText"
-                android:text="Corte" />
-
-            <EditText
-                android:id="@+id/corteTeam2"
-                style="@style/ScoreImputText"
-                android:hint="1 / 0"
-                android:imeOptions="actionDone"
-                android:inputType="number" />
-
-            <TextView
-                style="@style/ItemsText"
-                android:text="Muerto" />
-
-            <EditText
-                android:id="@+id/muertoTeam2"
-                style="@style/ScoreImputText"
-                android:hint="1 / -1"
-                android:imeOptions="actionDone"
-                android:inputType="numberSigned|number" />
+    <Button
+        android:id="@+id/buttonImpurasMas1Team1"
+        android:layout_width="42dp"
+        android:layout_height="48dp"
+        android:onClick="sumaImpurasTeam1"
+        android:text="+"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonImpurasTeam1"
+        app:layout_constraintStart_toEndOf="@+id/buttonPurasTeam1" />
 
 
-            <TextView
-                style="@style/ItemsText"
-                android:text="Canastas Puras" />
-
-            <EditText
-                android:id="@+id/purasTeam2"
-                style="@style/ScoreImputText"
-                android:hint="1"
-                android:imeOptions="actionDone"
-                android:inputType="number" />
-
-
-            <TextView
-                style="@style/ItemsText"
-                android:text="Canastas Impuras" />
-
-            <EditText
-                android:id="@+id/imPurasTeam2"
-                style="@style/ScoreImputText"
-                android:hint="1"
-                android:imeOptions="actionDone"
-                android:inputType="number" />
-
-            <TextView
-                style="@style/ItemsText"
-                android:text="Puntos" />
-
-            <EditText
-                android:id="@+id/puntosTeam2"
-                style="@style/ScoreImputText"
-                android:hint="100"
-                android:imeOptions="actionDone"
-                android:inputType="numberSigned|number" />
-
-            <TextView
-                style="@style/ItemsText"
-                android:text="Subtotal"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/subTotalTeam2"
-                style="@style/ItemsText"
-                android:gravity="center"
-                android:hint="0"
-                android:inputType="number"
-                android:textSize="24sp"/>
+    <Button
+        android:id="@+id/buttonFichasTeam1"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:onClick="focoFichasTeam1"
+        android:text="FICHAS"
+        app:layout_constraintBottom_toTopOf="@+id/textSubtotalTeam1"
+        app:layout_constraintStart_toStartOf="@+id/buttonImpurasMenos1Team1"
+        app:layout_constraintTop_toBottomOf="@+id/buttonImpurasMenos1Team1" />
 
 
-<!--            <Button
-                android:id="@+id/aceptarCalcularSubtotalTeam2"
-                style="@style/BurakoButtonEraseText"
-                android:onClick="aceptarCalcularSubtotalTeam2"
-                android:text="Calcular" />-->
+    <TextView
+        android:id="@+id/purasTeam1"
+        style="@style/ScoreImputText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="24sp"
 
-            <Button
-                android:id="@+id/aceptarCalcularTotalTeam2"
-                style="@style/BurakoButtonEraseText"
-                android:onClick="aceptarCalcularTotalTeam2"
-                android:text="Confirmar"
-                android:background="@color/colorBotonesBurako"/>
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonPurasMas1Team1"
+        tools:layout_editor_absoluteX="199dp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"/>
+
+    <EditText
+        android:id="@+id/impurasTeam1"
+        style="@style/ScoreImputText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:text="0"
+        android:textSize="24sp"
+
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonImpurasMas1Team1"
+        app:layout_constraintEnd_toEndOf="@+id/purasTeam1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"/>
+
+    <EditText
+        android:id="@+id/fichasTeam1"
+        style="@style/ScoreImputText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mi_borde"
+        android:hint="0"
+        android:textSize="24sp"
+
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonFichasTeam1"
+        app:layout_constraintEnd_toEndOf="@+id/impurasTeam1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"/>
+
+    <TextView
+        android:id="@+id/subTotalTeam1"
+        style="@style/ItemsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textSubtotalTeam1"
+        app:layout_constraintEnd_toEndOf="@+id/fichasTeam1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2" />
+
+
+    <TextView
+        android:id="@+id/textSubtotalTeam1"
+        style="@style/ItemsText"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Total Mano"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/buttonFichasTeam1"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFichasTeam1" />
+
+
+    <EditText
+        android:id="@+id/nombreTeam2"
+        style="@style/TeamText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Team 2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/scoreTeam2"
+        style="@style/BurakoScoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/nombreTeam2"
+        app:layout_constraintStart_toStartOf="@+id/nombreTeam2"
+        app:layout_constraintTop_toBottomOf="@+id/nombreTeam2" />
+
+
+    <CheckBox
+        android:id="@+id/buttonCorteTeam2"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/mi_borde"
+        android:onClick="actualizarCorteTeam2"
+        android:text=" CORTE"
+        app:layout_constraintBottom_toTopOf="@+id/buttonMuertoTeam2"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/guideline" />
+
+    <CheckBox
+        android:id="@+id/buttonMuertoTeam2"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mi_borde"
+        android:onClick="actualizarMuertoTeam2"
+        android:text=" MUERTO"
+        app:layout_constraintBottom_toTopOf="@+id/buttonPurasMenos1Team2"
+        app:layout_constraintStart_toStartOf="@+id/buttonCorteTeam2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCorteTeam2" />
+
+    <Button
+        android:id="@+id/buttonPurasMenos1Team2"
+        android:layout_width="35dp"
+        android:layout_height="48dp"
+        android:onClick="restaPurasTeam2"
+        android:text="-"
+        app:layout_constraintBottom_toTopOf="@+id/buttonImpurasMenos1Team2"
+        app:layout_constraintStart_toStartOf="@+id/buttonMuertoTeam2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMuertoTeam2" />
+
+    <Button
+        android:id="@+id/buttonPurasTeam2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sumaPurasTeam2"
+        android:text="PURAS"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonPurasMenos1Team2"
+        app:layout_constraintStart_toEndOf="@+id/buttonPurasMenos1Team2" />
+
+    <Button
+        android:id="@+id/buttonPurasMas1Team2"
+        android:layout_width="42dp"
+        android:layout_height="48dp"
+        android:onClick="sumaPurasTeam2"
+        android:text="+"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonPurasTeam2"
+        app:layout_constraintStart_toEndOf="@+id/buttonPurasTeam2" />
+
+    <Button
+        android:id="@+id/buttonImpurasMenos1Team2"
+        android:layout_width="35dp"
+        android:layout_height="48dp"
+        android:onClick="restaImpurasTeam2"
+        android:text="-"
+        app:layout_constraintBottom_toTopOf="@+id/buttonFichasTeam2"
+        app:layout_constraintStart_toStartOf="@+id/buttonPurasMenos1Team2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPurasMenos1Team2" />
+
+    <Button
+        android:id="@+id/buttonImpurasTeam2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sumaImpurasTeam2"
+        android:text="IMPURAS"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonImpurasMenos1Team2"
+        app:layout_constraintStart_toEndOf="@+id/buttonPurasMenos1Team2" />
+
+    <Button
+        android:id="@+id/buttonImpurasMas1Team2"
+        android:layout_width="42dp"
+        android:layout_height="48dp"
+        android:onClick="sumaImpurasTeam2"
+        android:text="+"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonImpurasTeam2"
+        app:layout_constraintStart_toEndOf="@+id/buttonPurasTeam2" />
+
+
+    <Button
+        android:id="@+id/buttonFichasTeam2"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:onClick="focoFichasTeam2"
+        android:text="FICHAS"
+        app:layout_constraintBottom_toTopOf="@+id/textSubtotalTeam2"
+        app:layout_constraintStart_toStartOf="@+id/buttonImpurasMenos1Team2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonImpurasMenos1Team2" />
+
+
+    <TextView
+        android:id="@+id/purasTeam2"
+        style="@style/ScoreImputText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="0"
+        android:textSize="24sp"
+
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonPurasMas1Team2"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/impurasTeam2"
+        style="@style/ScoreImputText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:text="0"
+        android:textSize="24sp"
+
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonImpurasMas1Team2"
+        app:layout_constraintEnd_toEndOf="@+id/purasTeam2"/>
+
+    <EditText
+        android:id="@+id/fichasTeam2"
+        style="@style/ScoreImputText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mi_borde"
+        android:hint="0"
+        android:textSize="24sp"
+
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonFichasTeam2"
+        app:layout_constraintEnd_toEndOf="@+id/impurasTeam2"/>
+
+    <TextView
+        android:id="@+id/subTotalTeam2"
+        style="@style/ItemsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textSubtotalTeam2"
+        app:layout_constraintEnd_toEndOf="@+id/fichasTeam2"/>
+
+
+    <TextView
+        android:id="@+id/textSubtotalTeam2"
+        style="@style/ItemsText"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Total Mano"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/buttonFichasTeam2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonFichasTeam2" />
 
 
 
-        </LinearLayout>
 
 
 
-    </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center_horizontal|center_vertical"
-        android:orientation="horizontal">
 
-        <Button
-            style="@style/ButtonText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:onClick="reset"
-            android:text="RESET" />
 
-        <Button
-            android:id="@+id/main"
-            style="@style/ButtonText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:onClick="home"
-            android:text="Home" />
 
-    </LinearLayout>
-</LinearLayout>
+
+
+    <Button
+        android:id="@+id/aceptarCalcularTotalTeam1"
+        style="@style/BurakoButtonEraseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorBotonesBurako"
+        android:onClick="aceptarCalcularTotalTeam1"
+        android:text="Confirmar"
+        app:layout_constraintBottom_toTopOf="@+id/buttonReset"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/aceptarCalcularTotalTeam2"
+        style="@style/BurakoButtonEraseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorBotonesBurako"
+        android:onClick="aceptarCalcularTotalTeam2"
+        android:text="Confirmar"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2" />
+
+    <Button
+        android:id="@+id/buttonReset"
+        style="@style/ButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="reset"
+        android:text="RESET"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonHome"
+        style="@style/ButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="home"
+        android:text="Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.18" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.79" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
