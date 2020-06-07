@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuActivity">
+
+    <Button
+        android:id="@+id/buttonTruco"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#179C27B0"
+        android:elevation="20dp"
+        android:onClick="truco"
+        android:padding="10dp"
+        android:text="Truco"
+
+        app:layout_constraintBottom_toTopOf="@+id/buttonGenerico"
+        app:layout_constraintEnd_toStartOf="@+id/buttonBurako"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guidelineHorizontal1" />
+
+    <Button
+        android:id="@+id/buttonBurako"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#179C27B0"
+        android:elevation="20dp"
+        android:onClick="burako"
+        android:padding="10dp"
+        android:text="Burako"
+
+        app:layout_constraintBottom_toBottomOf="@+id/buttonTruco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonTruco" />
+
+    <Button
+        android:id="@+id/buttonGenerico"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#179C27B0"
+        android:elevation="20dp"
+        android:onClick="generico"
+        android:padding="10dp"
+        android:text="Juego Generico"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTruco" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontal1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.40" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <TextView
+        android:id="@+id/textViewBienvenida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bienvenidos"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNombres1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/nombreTeam1"
+        style="@style/TeamText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:hint="  Team 1  "
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewNombres1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewNombres1" />
+
+    <EditText
+        android:id="@+id/nombreTeam2"
+        style="@style/TeamText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="10dp"
+        android:hint="  Team 2  "
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewNombres2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewNombres2" />
+
+    <TextView
+        android:id="@+id/textViewNombres1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre Equipo 1"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewNombres2"
+        app:layout_constraintEnd_toStartOf="@+id/nombreTeam1"
+                app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewBienvenida" />
+
+    <TextView
+        android:id="@+id/textViewNombres2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre Equipo 2"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal1"
+        app:layout_constraintEnd_toStartOf="@+id/nombreTeam2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNombres1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

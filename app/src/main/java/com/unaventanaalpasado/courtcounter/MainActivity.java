@@ -6,20 +6,37 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     int scoreTeam1=0;
     int scoreTeam2=0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        recuperarDatosActividadAnterior();
+
+
+    }
+    private void recuperarDatosActividadAnterior(){
+        try{
+            String varNombreTeam1 = getIntent().getStringExtra("NombreTeam1");
+            String varNombreTeam2 = getIntent().getStringExtra("NombreTeam2");
+            TextView view = findViewById(R.id.nombreTeam1);
+            view.setText(varNombreTeam1);
+            TextView view2 = findViewById(R.id.nombreTeam2);
+            view2.setText(varNombreTeam2);
+        }catch(Exception e){
+            Toast.makeText(this,"Error al transmitir los datos a la nueva Actividad",Toast.LENGTH_SHORT);
+        }
 
     }
     public void displayForTeam1(int score){
-        TextView scoreView = findViewById(R.id.team_1_score);
+        TextView scoreView = findViewById(R.id.scoreTeam1);
         scoreView.setText(String.valueOf(score));
     }
     public void addOneForTeam1(View v) {
@@ -44,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void displayForTeam2(int score){
-        TextView scoreView = findViewById(R.id.team_2_score);
+        TextView scoreView = findViewById(R.id.scoreTeam2);
         scoreView.setText(String.valueOf(score));
     }
     public void addOneForTeam2(View v) {
@@ -76,15 +93,14 @@ public class MainActivity extends AppCompatActivity {
         displayForTeam2(scoreTeam2);
     }
 
-    public void burako(View v){
-        Intent intent = new Intent(this, BurakoActivity.class);
+    public void home(View v) {
+        Intent intent = new Intent(this, MenuActivity.class);
+        TextView view = findViewById(R.id.nombreTeam1);
+        intent.putExtra("NombreTeam1",view.getText()+"");
+        TextView view2 = findViewById(R.id.nombreTeam2);
+        intent.putExtra("NombreTeam2",view2.getText()+"");
         startActivity(intent);
-
     }
-    public void general(View v){
-        Intent intent = new Intent(this, GeneralActivity.class);
-        startActivity(intent);
 
-    }
 
 }

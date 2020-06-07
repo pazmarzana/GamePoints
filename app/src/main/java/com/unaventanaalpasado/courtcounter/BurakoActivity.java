@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class BurakoActivity extends AppCompatActivity {
 
@@ -19,37 +21,38 @@ public class BurakoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_burako);
+        recuperarDatosActividadAnterior();
+
+
 
         // pongo a la escucha de cambio de texto al equipo1
         BurakoTextChangedListenerTeam1 miBurakoTextChangedListenerTeam1 = new BurakoTextChangedListenerTeam1(this);
 
-        EditText viewCorteTeam1EditText = findViewById(R.id.corteTeam1);
-        viewCorteTeam1EditText.addTextChangedListener(miBurakoTextChangedListenerTeam1);
-        EditText viewMuertoTeam1EditText = findViewById(R.id.muertoTeam1);
-        viewMuertoTeam1EditText.addTextChangedListener(miBurakoTextChangedListenerTeam1);
-        EditText viewPurasTeam1EditText = findViewById(R.id.purasTeam1);
-        viewPurasTeam1EditText.addTextChangedListener(miBurakoTextChangedListenerTeam1);
-        EditText viewImPurasTeam1EditText = findViewById(R.id.imPurasTeam1);
-        viewImPurasTeam1EditText.addTextChangedListener(miBurakoTextChangedListenerTeam1);
-        EditText viewPuntosTeam1EditText = findViewById(R.id.puntosTeam1);
+        EditText viewPuntosTeam1EditText = findViewById(R.id.fichasTeam1);
         viewPuntosTeam1EditText.addTextChangedListener(miBurakoTextChangedListenerTeam1);
 
         // pongo a la escucha de cambio de texto al equipo2
         BurakoTextChangedListenerTeam2 miBurakoTextChangedListenerTeam2 = new BurakoTextChangedListenerTeam2(this);
-        EditText viewCorteTeam2EditText = findViewById(R.id.corteTeam2);
-        viewCorteTeam2EditText.addTextChangedListener(miBurakoTextChangedListenerTeam2);
-        EditText viewMuertoTeam2EditText = findViewById(R.id.muertoTeam2);
-        viewMuertoTeam2EditText.addTextChangedListener(miBurakoTextChangedListenerTeam2);
-        EditText viewPurasTeam2EditText = findViewById(R.id.purasTeam2);
-        viewPurasTeam2EditText.addTextChangedListener(miBurakoTextChangedListenerTeam2);
-        EditText viewCorteimPurasEditText = findViewById(R.id.imPurasTeam2);
-        viewCorteimPurasEditText.addTextChangedListener(miBurakoTextChangedListenerTeam2);
-        EditText viewPuntosTeam2EditText = findViewById(R.id.puntosTeam2);
+
+        EditText viewPuntosTeam2EditText = findViewById(R.id.fichasTeam2);
         viewPuntosTeam2EditText.addTextChangedListener(miBurakoTextChangedListenerTeam2);
 
 
     }
 
+    private void recuperarDatosActividadAnterior(){
+        try{
+            String varNombreTeam1 = getIntent().getStringExtra("NombreTeam1");
+            String varNombreTeam2 = getIntent().getStringExtra("NombreTeam2");
+            TextView view = findViewById(R.id.nombreTeam1);
+            view.setText(varNombreTeam1);
+            TextView view2 = findViewById(R.id.nombreTeam2);
+            view2.setText(varNombreTeam2);
+        }catch(Exception e){
+            Toast.makeText(this,"Error al transmitir los datos a la nueva Actividad",Toast.LENGTH_SHORT);
+        }
+
+    }
     //        listener para los dos teams extiende clase propia TextChangedListener
     private class BurakoTextChangedListenerTeam1 extends TextChangedListener {
 
@@ -76,7 +79,7 @@ public class BurakoActivity extends AppCompatActivity {
     }
 
     public void displayForTeam1(int score){
-        TextView scoreView = findViewById(R.id.team_1_score);
+        TextView scoreView = findViewById(R.id.scoreTeam1);
         scoreView.setText(String.valueOf(score));
     }
 
@@ -87,27 +90,28 @@ public class BurakoActivity extends AppCompatActivity {
 
     public int calculoSubtotalTeam1() {
         int subtotalTeam1 = 0;
-        TextView view = findViewById(R.id.corteTeam1);
-        try {
-            subtotalTeam1 = subtotalTeam1 + (Integer.parseInt(view.getText().toString())) * 100;
-        }catch(NumberFormatException e){
+        CheckBox view = findViewById(R.id.buttonCorteTeam1);
+        if (view.isChecked()){
+            subtotalTeam1 = subtotalTeam1 + 100;
         }
-        TextView view2 = findViewById(R.id.muertoTeam1);
-        try {
-            subtotalTeam1 = subtotalTeam1 + (Integer.parseInt(view2.getText().toString())) * 100;
-        }catch(NumberFormatException e){
+        CheckBox view2 = findViewById(R.id.buttonMuertoTeam1);
+        if (view2.isChecked()){
+            subtotalTeam1 = subtotalTeam1 + 100;
+        }else{
+            subtotalTeam1 = subtotalTeam1 - 100;
         }
+
         TextView view3 = findViewById(R.id.purasTeam1);
         try {
             subtotalTeam1 = subtotalTeam1 + (Integer.parseInt(view3.getText().toString())) * 200;
         }catch(NumberFormatException e){
         }
-        TextView view4 = findViewById(R.id.imPurasTeam1);
+        TextView view4 = findViewById(R.id.impurasTeam1);
         try {
             subtotalTeam1 = subtotalTeam1 + (Integer.parseInt(view4.getText().toString())) * 100;
         }catch(NumberFormatException e){
         }
-        TextView view5 = findViewById(R.id.puntosTeam1);
+        TextView view5 = findViewById(R.id.fichasTeam1);
         try {
             subtotalTeam1 = subtotalTeam1 + (Integer.parseInt(view5.getText().toString()));
         }catch(NumberFormatException e){
@@ -116,22 +120,110 @@ public class BurakoActivity extends AppCompatActivity {
 
     }
 
-    public void aceptarCalcularTotalTeam1(View v) {
-        scoreTeam1 = scoreTeam1 + calculoSubtotalTeam1();
-        displayForTeam1(scoreTeam1);
-        resetValoresParcialesTeam1(v);
+
+
+
+    public void aceptarCalcularTotal(View v) {
+
+        CheckBox view1 = findViewById(R.id.buttonCorteTeam1);
+        CheckBox view2 = findViewById(R.id.buttonCorteTeam2);
+        TextView view3 = findViewById(R.id.purasTeam1);
+        TextView view4 = findViewById(R.id.impurasTeam1);
+        TextView view5 = findViewById(R.id.purasTeam2);
+        TextView view6 = findViewById(R.id.impurasTeam2);
+
+
+
+        int canastas1 = Integer.parseInt(view3.getText().toString())+Integer.parseInt(view4.getText().toString());
+        int canastas2 = Integer.parseInt(view5.getText().toString())+Integer.parseInt(view6.getText().toString());
+        if (view1.isChecked()&&view2.isChecked()){
+            Toast.makeText(getApplicationContext(),"Solo uno de los jugadores puede cortar",Toast.LENGTH_SHORT).show();
+        }else if (!view1.isChecked()&&!view2.isChecked()){
+        Toast.makeText(getApplicationContext(),"Alguno de los jugadores debe cortar",Toast.LENGTH_SHORT).show();
+        }else if (view1.isChecked()&&canastas1 < 1){
+            Toast.makeText(getApplicationContext(),"El jugador para cortar debe realizar una canasta",Toast.LENGTH_SHORT).show();
+        }else if (view2.isChecked()&&canastas2 < 1) {
+            Toast.makeText(getApplicationContext(), "El jugador para cortar debe realizar una canasta", Toast.LENGTH_SHORT).show();
+        }else{
+            scoreTeam1 = scoreTeam1 + calculoSubtotalTeam1();
+            displayForTeam1(scoreTeam1);
+            resetValoresParcialesTeam1(v);
+            scoreTeam2 = scoreTeam2 + calculoSubtotalTeam2();
+            displayForTeam2(scoreTeam2);
+            resetValoresParcialesTeam2(v);
+        }
     }
 
-/*    public void restOneForTeam1(View v) {
-        scoreTeam1-=1;
-        displayForTeam1(scoreTeam1);
-    }*/
+
+    public void actualizarCorteTeam1(View v) {
+
+        CheckBox view = findViewById(R.id.buttonCorteTeam1);
+        if (view.isChecked()){
+            //si corto tambien neceseariamente junto el muerto
+            CheckBox view2 = findViewById(R.id.buttonMuertoTeam1);
+            view2.setChecked(true);
+             //si uno corta el otro no
+            CheckBox view3 = findViewById(R.id.buttonCorteTeam2);
+            if (view3.isChecked()){
+                 view3.setChecked(false);
+                displaySubtotalTeam2(calculoSubtotalTeam2());
+            }
+        }
+
+        displaySubtotalTeam1(calculoSubtotalTeam1());
+    }
+
+    public void actualizarMuertoTeam1(View v) {
+        CheckBox view = findViewById(R.id.buttonMuertoTeam1);
+        if (!view.isChecked()){
+            CheckBox view2 = findViewById(R.id.buttonCorteTeam1);
+            view2.setChecked(false);
+        }
+        displaySubtotalTeam1(calculoSubtotalTeam1());
+    }
+
+    public void sumaPurasTeam1(View v) {
+        TextView viewPurasTeam1 = findViewById(R.id.purasTeam1);
+        int aux =Integer.parseInt(viewPurasTeam1.getText().toString());
+        aux++;
+        viewPurasTeam1.setText(Integer.toString(aux));
+        displaySubtotalTeam1(calculoSubtotalTeam1());
+    }
+
+    public void restaPurasTeam1(View v) {
+        TextView viewPurasTeam1 = findViewById(R.id.purasTeam1);
+        int aux =Integer.parseInt(viewPurasTeam1.getText().toString());
+        if(aux > 0) {
+            aux--;
+        }
+        viewPurasTeam1.setText(Integer.toString(aux));
+        displaySubtotalTeam1(calculoSubtotalTeam1());
+    }
+
+    public void sumaImpurasTeam1(View v) {
+        TextView viewImpurasTeam1 = findViewById(R.id.impurasTeam1);
+        int aux =Integer.parseInt(viewImpurasTeam1.getText().toString());
+        aux++;
+        viewImpurasTeam1.setText(Integer.toString(aux));
+        displaySubtotalTeam1(calculoSubtotalTeam1());
+    }
+
+    public void restaImpurasTeam1(View v) {
+        TextView viewImpurasTeam1 = findViewById(R.id.impurasTeam1);
+        int aux =Integer.parseInt(viewImpurasTeam1.getText().toString());
+        if(aux > 0) {
+            aux--;
+        }
+        viewImpurasTeam1.setText(Integer.toString(aux));
+        displaySubtotalTeam1(calculoSubtotalTeam1());
+    }
+
 
 
 //                           TEAM 2
 
     public void displayForTeam2(int score){
-        TextView scoreView = findViewById(R.id.team_2_score);
+        TextView scoreView = findViewById(R.id.scoreTeam2);
         scoreView.setText(String.valueOf(score));
     }
     public void displaySubtotalTeam2(int score){
@@ -140,54 +232,104 @@ public class BurakoActivity extends AppCompatActivity {
     }
     public int calculoSubtotalTeam2() {
         int subtotalTeam2 = 0;
-        TextView view = findViewById(R.id.corteTeam2);
-        try {
-            subtotalTeam2 = subtotalTeam2 + (Integer.parseInt(view.getText().toString())) * 100;
-        }catch(NumberFormatException e){
+        CheckBox view = findViewById(R.id.buttonCorteTeam2);
+        if (view.isChecked()){
+            subtotalTeam2 = subtotalTeam2 + 100;
         }
-        TextView view2 = findViewById(R.id.muertoTeam2);
-        try {
-            subtotalTeam2 = subtotalTeam2 + (Integer.parseInt(view2.getText().toString())) * 100;
-        }catch(NumberFormatException e){
+        CheckBox view2 = findViewById(R.id.buttonMuertoTeam2);
+        if (view2.isChecked()){
+            subtotalTeam2 = subtotalTeam2 + 100;
+        }else{
+            subtotalTeam2 = subtotalTeam2 - 100;
         }
+
         TextView view3 = findViewById(R.id.purasTeam2);
         try {
             subtotalTeam2 = subtotalTeam2 + (Integer.parseInt(view3.getText().toString())) * 200;
         }catch(NumberFormatException e){
         }
-        TextView view4 = findViewById(R.id.imPurasTeam2);
+        TextView view4 = findViewById(R.id.impurasTeam2);
         try {
             subtotalTeam2 = subtotalTeam2 + (Integer.parseInt(view4.getText().toString())) * 100;
         }catch(NumberFormatException e){
         }
-        TextView view5 = findViewById(R.id.puntosTeam2);
+        TextView view5 = findViewById(R.id.fichasTeam2);
         try {
             subtotalTeam2 = subtotalTeam2 + (Integer.parseInt(view5.getText().toString()));
         }catch(NumberFormatException e){
         }
         return subtotalTeam2;
 
-
     }
-/*    public void aceptarCalcularSubtotalTeam2(View v) {
-        //displayForTeam2(scoreTeam2);
-        //subtotalTeam2 = calculoSubtotalTeam2();
+
+
+
+
+
+    public void actualizarCorteTeam2(View v) {
+        CheckBox view = findViewById(R.id.buttonCorteTeam2);
+        if (view.isChecked()){
+            //si corto tambien neceseariamente junto el muerto
+            CheckBox view2 = findViewById(R.id.buttonMuertoTeam2);
+            view2.setChecked(true);
+            //si uno corta el otro no
+            CheckBox view3 = findViewById(R.id.buttonCorteTeam1);
+            if (view3.isChecked()){
+                view3.setChecked(false);
+                displaySubtotalTeam1(calculoSubtotalTeam1());
+            }
+        }
+
         displaySubtotalTeam2(calculoSubtotalTeam2());
-    }*/
-
-    public void aceptarCalcularTotalTeam2(View v) {
-
-        scoreTeam2 = scoreTeam2 + calculoSubtotalTeam2();
-        displayForTeam2(scoreTeam2);
-        resetValoresParcialesTeam2(v);
-
     }
-/*
-    public void restOneForTeam2(View v) {
-        scoreTeam2-=1;
-        displayForTeam2(scoreTeam2);
+
+    public void actualizarMuertoTeam2(View v) {
+        CheckBox view = findViewById(R.id.buttonMuertoTeam2);
+        if (!view.isChecked()){
+            CheckBox view2 = findViewById(R.id.buttonCorteTeam2);
+            view2.setChecked(false);
+        }
+        displaySubtotalTeam2(calculoSubtotalTeam2());
     }
-*/
+
+    public void sumaPurasTeam2(View v) {
+        TextView viewPurasTeam2 = findViewById(R.id.purasTeam2);
+        int aux =Integer.parseInt(viewPurasTeam2.getText().toString());
+        aux++;
+        viewPurasTeam2.setText(Integer.toString(aux));
+        displaySubtotalTeam2(calculoSubtotalTeam2());
+    }
+
+    public void restaPurasTeam2(View v) {
+        TextView viewPurasTeam2 = findViewById(R.id.purasTeam2);
+        int aux =Integer.parseInt(viewPurasTeam2.getText().toString());
+        if(aux > 0) {
+            aux--;
+        }
+        viewPurasTeam2.setText(Integer.toString(aux));
+        displaySubtotalTeam2(calculoSubtotalTeam2());
+    }
+
+    public void sumaImpurasTeam2(View v) {
+        TextView viewImpurasTeam2 = findViewById(R.id.impurasTeam2);
+        int aux =Integer.parseInt(viewImpurasTeam2.getText().toString());
+        aux++;
+        viewImpurasTeam2.setText(Integer.toString(aux));
+        displaySubtotalTeam2(calculoSubtotalTeam2());
+    }
+
+    public void restaImpurasTeam2(View v) {
+        TextView viewImpurasTeam2 = findViewById(R.id.impurasTeam2);
+        int aux =Integer.parseInt(viewImpurasTeam2.getText().toString());
+        if(aux > 0) {
+            aux--;
+        }
+        viewImpurasTeam2.setText(Integer.toString(aux));
+        displaySubtotalTeam2(calculoSubtotalTeam2());
+    }
+
+
+
 
 //                               RESET
 
@@ -202,39 +344,43 @@ public class BurakoActivity extends AppCompatActivity {
     }
 
     public void resetValoresParcialesTeam1(View v){
-        TextView view = findViewById(R.id.corteTeam1);
-        view.setText("");
-        TextView view2 = findViewById(R.id.muertoTeam1);
-        view2.setText("");
+        CheckBox view = findViewById(R.id.buttonCorteTeam1);
+        view.setChecked(false);
+        CheckBox view2 = findViewById(R.id.buttonMuertoTeam1);
+        view2.setChecked(false);
         TextView view3 = findViewById(R.id.purasTeam1);
-        view3.setText("");
-        TextView view4 = findViewById(R.id.imPurasTeam1);
-        view4.setText("");
-        TextView view5 = findViewById(R.id.puntosTeam1);
-        view5.setText("");
+        view3.setText("0");
+        TextView view4 = findViewById(R.id.impurasTeam1);
+        view4.setText("0");
+        TextView view5 = findViewById(R.id.fichasTeam1);
+        view5.setText(""); //no poner 0
         TextView view6 = findViewById(R.id.subTotalTeam1);
-        view6.setText("");
+        view6.setText("0");
 
     }
 
-    public void resetValoresParcialesTeam2(View v){
-        TextView view = findViewById(R.id.corteTeam2);
-        view.setText("");
-        TextView view2 = findViewById(R.id.muertoTeam2);
-        view2.setText("");
+    public void resetValoresParcialesTeam2(View v) {
+        CheckBox view = findViewById(R.id.buttonCorteTeam2);
+        view.setChecked(false);
+        CheckBox view2 = findViewById(R.id.buttonMuertoTeam2);
+        view2.setChecked(false);
         TextView view3 = findViewById(R.id.purasTeam2);
-        view3.setText("");
-        TextView view4 = findViewById(R.id.imPurasTeam2);
-        view4.setText("");
-        TextView view5 = findViewById(R.id.puntosTeam2);
-        view5.setText("");
+        view3.setText("0");
+        TextView view4 = findViewById(R.id.impurasTeam2);
+        view4.setText("0");
+        TextView view5 = findViewById(R.id.fichasTeam2);
+        view5.setText(""); //no poner 0
         TextView view6 = findViewById(R.id.subTotalTeam2);
-        view6.setText("");
-
+        view6.setText("0");
     }
     //             OTROS BOTONES
+
     public void home(View v) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MenuActivity.class);
+        TextView view = findViewById(R.id.nombreTeam1);
+        intent.putExtra("NombreTeam1",view.getText()+"");
+        TextView view2 = findViewById(R.id.nombreTeam2);
+        intent.putExtra("NombreTeam2",view2.getText()+"");
         startActivity(intent);
     }
 

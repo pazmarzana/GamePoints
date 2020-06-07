@@ -20,36 +20,37 @@
             android:orientation="vertical">
 
             <EditText
+                android:id="@+id/nombreTeam1"
                 style="@style/TeamText"
-                 android:hint="Team 1"/>
+                android:hint="Team 1" />
 
              <TextView
                 style="@style/ScoreText"
-                android:id="@+id/team_1_score"
+                android:id="@+id/scoreTeam1"
                  android:text="0"/>
 
             <Button
-                style="@style/ButtonTextTruco"
+                style="@style/TrucoButton"
                 android:onClick="addOneForTeam1"
                 android:text="+1 Points" />
 
             <Button
-                style="@style/ButtonTextTruco"
+                style="@style/TrucoButton"
                 android:onClick="addTwoForTeam1"
                 android:text="+2 Points" />
 
             <Button
-                style="@style/ButtonTextTruco"
+                style="@style/TrucoButton"
                 android:onClick="addThreeForTeam1"
                 android:text="+3 Points" />
 
             <Button
-                style="@style/ButtonTextTruco"
+                style="@style/TrucoButton"
                 android:onClick="addFourForTeam1"
                 android:text="+4 Points" />
 
             <Button
-                style="@style/ButtonEraseText"
+                style="@style/TrucoButtonErase"
                 android:onClick="restOneForTeam1"
                 android:text="-1 Point" />
 
@@ -70,36 +71,37 @@
             android:orientation="vertical">
 
             <EditText
+                android:id="@+id/nombreTeam2"
                 style="@style/TeamText"
                  android:hint="Team 2"/>
 
             <TextView
                 style="@style/ScoreText"
-                android:id="@+id/team_2_score"
+                android:id="@+id/scoreTeam2"
                 android:text="0"/>
 
             <Button
-                style="@style/ButtonTextTruco"
+                style="@style/TrucoButton"
                 android:onClick="addOneForTeam2"
                 android:text="+1 Points" />
 
             <Button
-                style="@style/ButtonTextTruco"
+                style="@style/TrucoButton"
                 android:onClick="addTwoForTeam2"
                 android:text="+2 Points" />
 
             <Button
-                style="@style/ButtonTextTruco"
+                style="@style/TrucoButton"
                 android:onClick="addThreeForTeam2"
                 android:text="+3 Points" />
 
             <Button
-                style="@style/ButtonTextTruco"
+                style="@style/TrucoButton"
                 android:onClick="addFourForTeam2"
                 android:text="+4 Points" />
 
             <Button
-                style="@style/ButtonEraseText"
+                style="@style/TrucoButtonErase"
                 android:onClick="restOneForTeam2"
                 android:text="-1 Point" />
 
@@ -119,31 +121,21 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/general"
-            style="@style/ButtonText"
+            style="@style/ButtonNormal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"
-            android:onClick="general"
-            android:text="General" />
-
-        <Button
-            style="@style/ButtonText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:background="@color/colorBotonesTruco"
             android:onClick="reset"
-            android:text="RESET" />
+            android:text="Nueva Partida" />
 
         <Button
-            android:id="@+id/burako"
-            style="@style/ButtonText"
+            android:id="@+id/buttonHome"
+            style="@style/ButtonNormal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"
-            android:onClick="burako"
-            android:text="Burako" />
+            android:onClick="home"
+            android:text="Home" />
 
     </LinearLayout>
 </LinearLayout>

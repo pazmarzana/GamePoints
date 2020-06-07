@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".GenericoActivity">
+
+
+    <EditText
+        android:id="@+id/nombreTeam1"
+        style="@style/TeamText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Team 1"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/scoreTeam1"
+        style="@style/ScoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal1"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreTeam1" />
+
+    <TextView
+        android:id="@+id/textViewPuntosTeam1"
+        style="@style/GenericoItemsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="Puntos"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPuntosExtraTeam1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal1" />
+
+    <EditText
+        android:id="@+id/puntosTeam1"
+        style="@style/GenericoImputNumbers"
+
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/my_shadow"
+        android:elevation="10dp"
+        android:hint="0"
+        android:inputType="numberSigned|number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewPuntosTeam1"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
+        app:layout_constraintStart_toEndOf="@+id/textViewPuntosTeam1" />
+
+
+    <TextView
+        android:id="@+id/textViewPuntosExtraTeam1"
+        style="@style/GenericoItemsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pts Extra"
+        app:layout_constraintBottom_toTopOf="@+id/dividerHorizontal"
+        app:layout_constraintStart_toStartOf="@+id/textViewPuntosTeam1"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPuntosTeam1" />
+
+    <EditText
+        android:id="@+id/puntosExtraTeam1"
+        style="@style/GenericoImputNumbers"
+
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_shadow"
+        android:elevation="10dp"
+        android:hint="0"
+        android:imeOptions="actionDone"
+        android:inputType="numberSigned|number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewPuntosExtraTeam1"
+        app:layout_constraintEnd_toEndOf="@+id/puntosTeam1" />
+
+    <TextView
+        android:id="@+id/textViewSubTotalTeam1"
+        style="@style/GenericoItemsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subtotal"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal2"
+        app:layout_constraintStart_toStartOf="@+id/textViewPuntosExtraTeam1"
+        app:layout_constraintTop_toBottomOf="@+id/dividerHorizontal" />
+
+
+    <TextView
+        android:id="@+id/subTotalTeam1"
+        style="@style/GenericoItemsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="0"
+        android:inputType="number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewSubTotalTeam1"
+        app:layout_constraintEnd_toEndOf="@+id/puntosExtraTeam1" />
+
+    <Button
+        android:id="@+id/aceptarCalcularTotal"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:background="@drawable/my_shadow"
+        android:elevation="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="aceptarCalcularTotal"
+        android:text="Aceptar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guidelineHorizontal2" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="3dp"
+        android:layout_height="574dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <EditText
+        android:id="@+id/nombreTeam2"
+        style="@style/TeamText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Team 2"
+        app:layout_constraintBaseline_toBaselineOf="@+id/nombreTeam1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical" />
+
+
+    <TextView
+        android:id="@+id/scoreTeam2"
+        style="@style/ScoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBaseline_toBaselineOf="@+id/scoreTeam1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical" />
+
+    <TextView
+        android:id="@+id/textViewPuntosTeam2"
+        style="@style/GenericoItemsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="Puntos"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewPuntosTeam1"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical"
+        app:layout_constraintTop_toTopOf="@+id/textViewPuntosTeam1" />
+
+    <EditText
+        android:id="@+id/puntosTeam2"
+        style="@style/GenericoImputNumbers"
+
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/my_shadow"
+        android:elevation="10dp"
+        android:hint="0"
+        android:imeOptions="actionDone"
+        android:inputType="numberSigned|number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewPuntosTeam2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewPuntosTeam2" />
+
+    <TextView
+        android:id="@+id/textViewPuntosExtraTeam2"
+        style="@style/GenericoItemsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pts Extra"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewPuntosExtraTeam1"
+        app:layout_constraintStart_toStartOf="@+id/textViewPuntosTeam2"
+        app:layout_constraintTop_toTopOf="@+id/textViewPuntosExtraTeam1" />
+
+    <EditText
+        android:id="@+id/puntosExtraTeam2"
+        style="@style/GenericoImputNumbers"
+
+        android:layout_height="wrap_content"
+        android:background="@drawable/my_shadow"
+        android:elevation="10dp"
+        android:hint="0"
+        android:imeOptions="actionDone"
+        android:inputType="numberSigned|number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewPuntosExtraTeam2"
+        app:layout_constraintEnd_toEndOf="@+id/puntosTeam2" />
+
+
+    <TextView
+        android:id="@+id/textViewSubtotalTeam2"
+        style="@style/GenericoItemsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subtotal"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewSubTotalTeam1"
+        app:layout_constraintStart_toStartOf="@+id/textViewPuntosExtraTeam2"
+        app:layout_constraintTop_toTopOf="@+id/textViewSubTotalTeam1" />
+
+    <TextView
+        android:id="@+id/subTotalTeam2"
+        style="@style/GenericoItemsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="0"
+        android:inputType="number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewSubtotalTeam2"
+        app:layout_constraintEnd_toEndOf="@+id/puntosExtraTeam2" />
+
+    <Button
+        android:id="@+id/buttonNuevaPartida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="reset"
+        android:text="Nueva Partida"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aceptarCalcularTotal" />
+
+    <Button
+        android:id="@+id/buttonHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="home"
+        android:text="Home"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonNuevaPartida"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical"
+        app:layout_constraintTop_toTopOf="@+id/buttonNuevaPartida" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontal1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.21" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.79" />
+
+    <View
+        android:id="@+id/dividerHorizontal"
+        android:layout_width="409dp"
+        android:layout_height="4dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSubTotalTeam1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@+id/textViewPuntosExtraTeam1" />
+
+    <View
+        android:id="@+id/dividerVertical"
+        android:layout_width="2dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="32dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

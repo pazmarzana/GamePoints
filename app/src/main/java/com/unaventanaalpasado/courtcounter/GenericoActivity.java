@@ -8,8 +8,9 @@ import android.text.Editable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class GeneralActivity extends AppCompatActivity {
+public class GenericoActivity extends AppCompatActivity {
 
     int scoreTeam1=0;
     int scoreTeam2=0;
@@ -18,32 +19,47 @@ public class GeneralActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_general);
+        setContentView(R.layout.activity_generico);
+        recuperarDatosActividadAnterior();
+
 
         // pongo a la escucha de cambio de texto al equipo1
-        GeneralTextChangedListenerTeam1 miGeneralTextChangedListenerTeam1 = new GeneralTextChangedListenerTeam1(this);
+        GenericoTextChangedListenerTeam1 miGenericoTextChangedListenerTeam1 = new GenericoTextChangedListenerTeam1(this);
 
 
         EditText viewPuntosTeam1EditText = findViewById(R.id.puntosTeam1);
-        viewPuntosTeam1EditText.addTextChangedListener(miGeneralTextChangedListenerTeam1);
+        viewPuntosTeam1EditText.addTextChangedListener(miGenericoTextChangedListenerTeam1);
         EditText viewPuntosExtraTeam1EditText = findViewById(R.id.puntosExtraTeam1);
-        viewPuntosExtraTeam1EditText.addTextChangedListener(miGeneralTextChangedListenerTeam1);
+        viewPuntosExtraTeam1EditText.addTextChangedListener(miGenericoTextChangedListenerTeam1);
 
         // pongo a la escucha de cambio de texto al equipo2
-        GeneralTextChangedListenerTeam2 miGeneralTextChangedListenerTeam2 = new GeneralTextChangedListenerTeam2(this);
+        GenericoTextChangedListenerTeam2 miGenericoTextChangedListenerTeam2 = new GenericoTextChangedListenerTeam2(this);
 
         EditText viewPuntosTeam2EditText = findViewById(R.id.puntosTeam2);
-        viewPuntosTeam2EditText.addTextChangedListener(miGeneralTextChangedListenerTeam2);
+        viewPuntosTeam2EditText.addTextChangedListener(miGenericoTextChangedListenerTeam2);
         EditText viewPuntosExtraTeam2EditText = findViewById(R.id.puntosExtraTeam2);
-        viewPuntosExtraTeam2EditText.addTextChangedListener(miGeneralTextChangedListenerTeam2);
+        viewPuntosExtraTeam2EditText.addTextChangedListener(miGenericoTextChangedListenerTeam2);
 
 
     }
 
-    //        listener para los dos teams extiende clase propia TextChangedListener
-    private class GeneralTextChangedListenerTeam1 extends TextChangedListener {
+    private void recuperarDatosActividadAnterior(){
+        try{
+            String varNombreTeam1 = getIntent().getStringExtra("NombreTeam1");
+            String varNombreTeam2 = getIntent().getStringExtra("NombreTeam2");
+            TextView view = findViewById(R.id.nombreTeam1);
+            view.setText(varNombreTeam1);
+            TextView view2 = findViewById(R.id.nombreTeam2);
+            view2.setText(varNombreTeam2);
+        }catch(Exception e){
+            Toast.makeText(this,"Error al transmitir los datos a la nueva Actividad",Toast.LENGTH_SHORT);
+        }
 
-        private GeneralTextChangedListenerTeam1(Object target) {
+    }
+    //        listener para los dos teams extiende clase propia TextChangedListener
+    private class GenericoTextChangedListenerTeam1 extends TextChangedListener {
+
+        private GenericoTextChangedListenerTeam1(Object target) {
             super(target);
         }
 
@@ -53,9 +69,9 @@ public class GeneralActivity extends AppCompatActivity {
         }
     };
 
-    private class GeneralTextChangedListenerTeam2 extends TextChangedListener {
+    private class GenericoTextChangedListenerTeam2 extends TextChangedListener {
 
-        private GeneralTextChangedListenerTeam2(Object target) {
+        private GenericoTextChangedListenerTeam2(Object target) {
             super(target);
         }
 
@@ -66,7 +82,7 @@ public class GeneralActivity extends AppCompatActivity {
     };
 
     public void displayForTeam1(int score){
-        TextView scoreView = findViewById(R.id.team_1_score);
+        TextView scoreView = findViewById(R.id.scoreTeam1);
         scoreView.setText(String.valueOf(score));
     }
 
@@ -92,10 +108,13 @@ public class GeneralActivity extends AppCompatActivity {
 
     }
 
-    public void aceptarCalcularTotalTeam1(View v) {
+    public void aceptarCalcularTotal(View v) {
         scoreTeam1 = scoreTeam1 + calculoSubtotalTeam1();
         displayForTeam1(scoreTeam1);
         resetValoresParcialesTeam1(v);
+        scoreTeam2 = scoreTeam2 + calculoSubtotalTeam2();
+        displayForTeam2(scoreTeam2);
+        resetValoresParcialesTeam2(v);
     }
 
 
@@ -104,7 +123,7 @@ public class GeneralActivity extends AppCompatActivity {
 //                           TEAM 2
 
     public void displayForTeam2(int score){
-        TextView scoreView = findViewById(R.id.team_2_score);
+        TextView scoreView = findViewById(R.id.scoreTeam2);
         scoreView.setText(String.valueOf(score));
     }
     public void displaySubtotalTeam2(int score){
@@ -168,7 +187,11 @@ public class GeneralActivity extends AppCompatActivity {
     }
     //             OTROS BOTONES
     public void home(View v) {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MenuActivity.class);
+        TextView view = findViewById(R.id.nombreTeam1);
+        intent.putExtra("NombreTeam1",view.getText()+"");
+        TextView view2 = findViewById(R.id.nombreTeam2);
+        intent.putExtra("NombreTeam2",view2.getText()+"");
         startActivity(intent);
     }
 
