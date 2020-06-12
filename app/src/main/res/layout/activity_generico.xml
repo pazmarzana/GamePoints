@@ -5,6 +5,7 @@
     android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorClaro"
     android:orientation="vertical"
     tools:context=".GenericoActivity">
 
@@ -52,8 +53,10 @@
         android:layout_marginRight="8dp"
         android:background="@drawable/my_shadow"
         android:elevation="10dp"
+
         android:hint="0"
         android:inputType="numberSigned|number"
+
         app:layout_constraintBaseline_toBaselineOf="@+id/textViewPuntosTeam1"
         app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
         app:layout_constraintStart_toEndOf="@+id/textViewPuntosTeam1" />
@@ -64,7 +67,7 @@
         style="@style/GenericoItemsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pts Extra"
+        android:text="Puntos\nExtra"
         app:layout_constraintBottom_toTopOf="@+id/dividerHorizontal"
         app:layout_constraintStart_toStartOf="@+id/textViewPuntosTeam1"
         app:layout_constraintTop_toBottomOf="@+id/textViewPuntosTeam1" />
@@ -79,8 +82,9 @@
         android:hint="0"
         android:imeOptions="actionDone"
         android:inputType="numberSigned|number"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textViewPuntosExtraTeam1"
-        app:layout_constraintEnd_toEndOf="@+id/puntosTeam1" />
+        app:layout_constraintBottom_toBottomOf="@+id/textViewPuntosExtraTeam1"
+        app:layout_constraintEnd_toEndOf="@+id/puntosTeam1"
+        app:layout_constraintTop_toTopOf="@+id/textViewPuntosExtraTeam1" />
 
     <TextView
         android:id="@+id/textViewSubTotalTeam1"
@@ -107,10 +111,10 @@
     <Button
         android:id="@+id/aceptarCalcularTotal"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:background="@drawable/my_shadow"
-        android:elevation="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/my_shadow"
+        android:elevation="10dp"
         android:onClick="aceptarCalcularTotal"
         android:text="Aceptar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -181,10 +185,10 @@
         style="@style/GenericoItemsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pts Extra"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewPuntosExtraTeam1"
+        android:text="Puntos\nExtra"
+        app:layout_constraintBottom_toBottomOf="@+id/puntosExtraTeam1"
         app:layout_constraintStart_toStartOf="@+id/textViewPuntosTeam2"
-        app:layout_constraintTop_toTopOf="@+id/textViewPuntosExtraTeam1" />
+        app:layout_constraintTop_toTopOf="@+id/puntosExtraTeam1" />
 
     <EditText
         android:id="@+id/puntosExtraTeam2"
@@ -196,8 +200,9 @@
         android:hint="0"
         android:imeOptions="actionDone"
         android:inputType="numberSigned|number"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textViewPuntosExtraTeam2"
-        app:layout_constraintEnd_toEndOf="@+id/puntosTeam2" />
+        app:layout_constraintBottom_toBottomOf="@+id/textViewPuntosExtraTeam2"
+        app:layout_constraintEnd_toEndOf="@+id/puntosTeam2"
+        app:layout_constraintTop_toTopOf="@+id/textViewPuntosExtraTeam2" />
 
 
     <TextView
@@ -223,6 +228,7 @@
 
     <Button
         android:id="@+id/buttonNuevaPartida"
+        style="@style/ButtonNormal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="reset"
@@ -234,6 +240,7 @@
 
     <Button
         android:id="@+id/buttonHome"
+        style="@style/ButtonNormal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="home"
@@ -282,9 +289,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="32dp"
+        android:background="?android:attr/listDivider"
         android:paddingTop="16dp"
         android:paddingBottom="32dp"
-        android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

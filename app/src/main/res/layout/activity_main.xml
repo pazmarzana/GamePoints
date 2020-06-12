@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorClaro"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -24,10 +25,10 @@
                 style="@style/TeamText"
                 android:hint="Team 1" />
 
-             <TextView
-                style="@style/ScoreText"
+            <TextView
                 android:id="@+id/scoreTeam1"
-                 android:text="0"/>
+                style="@style/ScoreText"
+                android:text="0" />
 
             <Button
                 style="@style/TrucoButton"
@@ -55,7 +56,6 @@
                 android:text="-1 Point" />
 
 
-
         </LinearLayout>
 
         <View
@@ -73,12 +73,12 @@
             <EditText
                 android:id="@+id/nombreTeam2"
                 style="@style/TeamText"
-                 android:hint="Team 2"/>
+                android:hint="Team 2" />
 
             <TextView
-                style="@style/ScoreText"
                 android:id="@+id/scoreTeam2"
-                android:text="0"/>
+                style="@style/ScoreText"
+                android:text="0" />
 
             <Button
                 style="@style/TrucoButton"
@@ -107,7 +107,6 @@
 
 
         </LinearLayout>
-
 
 
     </LinearLayout>

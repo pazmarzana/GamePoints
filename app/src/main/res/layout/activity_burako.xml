@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorClaro"
     tools:context=".BurakoActivity">
 
 
@@ -34,9 +35,10 @@
         android:id="@+id/buttonCorteTeam1"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
+        android:background="@drawable/my_shadow"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:background="@drawable/my_shadow"
+        app:buttonTint="@color/colorBotonesGeneral"
         android:elevation="10dp"
         android:onClick="actualizarCorteTeam1"
         android:padding="10dp"
@@ -51,6 +53,7 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:background="@drawable/my_shadow"
+        app:buttonTint="@color/colorBotonesGeneral"
         android:elevation="10dp"
         android:onClick="actualizarMuertoTeam1"
         android:padding="10dp"
@@ -208,6 +211,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:background="@drawable/my_shadow"
+        app:buttonTint="@color/colorBotonesGeneral"
         android:elevation="10dp"
         android:onClick="actualizarCorteTeam2"
         android:padding="10dp"
@@ -222,6 +226,7 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:background="@drawable/my_shadow"
+        app:buttonTint="@color/colorBotonesGeneral"
         android:elevation="10dp"
         android:onClick="actualizarMuertoTeam2"
         android:padding="10dp"

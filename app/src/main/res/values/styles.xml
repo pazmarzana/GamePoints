@@ -4,12 +4,12 @@
         <style name="AppTheme" parent="Theme.AppCompat.Light">
             <!-- Primary theme color of the app (sets background color of app bar) -->
             <item name="colorPrimary">@color/colorPrimary</item>
-            <!-- color naranja  #FF9800-->
             <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
             <item name="colorAccent">@color/colorAccent</item>  -->
             <!-- Background color of buttons in the app -->
-            <item name="colorButtonNormal">@color/colorAccent</item>
+            <item name="colorButtonNormal">@color/colorSecondary</item>
             <item name="android:textColorPrimary">@color/colorNegro</item>
+            <item name="android:textColorSecondary">@color/colorBlanco</item>
             <item name="android:textColorTertiary">@color/colorGris</item>
        </style>
 
@@ -27,7 +27,7 @@
             <item name="android:fontFamily">sans-serif-medium</item>
             <item name="android:textSize">24sp</item>
 <!--            Para que no salga el subrayado-->
-            <item name="android:background">@color/colorClaro</item>-->
+            <item name="android:background">@color/colorClaro</item>
             <item name="android:clickable">true</item>
             <item name="android:cursorVisible">false</item>
             <item name="android:inputType">text</item>
@@ -79,6 +79,7 @@
         <item name="android:layout_marginLeft">8dp</item>
         <item name="android:layout_marginRight">8dp</item>
         <item name="android:layout_marginBottom">8dp</item>
+
     </style>
 
 
@@ -115,20 +116,21 @@
 
         </style>
         <style name="GenericoImputNumbers" parent="Theme.AppCompat.Light">
-            <item name="android:layout_width">88dp</item>
+            <item name="android:layout_width">wrap_content</item>
+            <item name="android:minWidth">80dp</item>
+
             <item name="android:layout_height">wrap_content</item>
             <item name="android:layout_marginBottom">8dp</item>
             <item name="android:background">@color/colorClaro</item>
             <item name="android:clickable">true</item>
             <item name="android:cursorVisible">false</item>
-            <item name="android:gravity">center_horizontal</item>
+            <item name="android:gravity">right</item>
             <item name="android:inputType">number</item>
             <item name="android:singleLine">true</item>
             <item name="android:imeOptions">actionDone</item>
             <item name="android:textSize">18sp</item>
-            <item name="android:paddingLeft">18dp</item>
-            <item name="android:paddingRight">18dp</item>
             <item name="android:paddingTop">2dp</item>
+            <item name="android:paddingRight">8dp</item>
             <item name="android:paddingBottom">2dp</item>
 
 
@@ -164,7 +166,21 @@
         <item name="android:layout_marginLeft">40dp</item>
         <item name="android:layout_marginRight">40dp</item>
         <item name="android:layout_marginTop">16dp</item>
-        <item name="android:background">@color/colorBotonesTruco</item>
+        <item name="android:backgroundTint">@color/colorBotonesTruco</item>
+
+    </style>
+
+
+    <style name="MenuButton" parent="Theme.AppCompat.Light">
+
+
+        <item name="android:elevation">10dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/colorClaro</item>
+        <item name="android:background">@color/colorClaro</item>
 
     </style>
 </resources>

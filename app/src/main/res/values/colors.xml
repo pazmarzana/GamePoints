@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#D32F2F</color>
-    <color name="colorPrimaryDark">#9A0007</color>
-    <color name="colorAccent">#FF6659</color>
-    <color name="colorClaro">#fafafa</color>
-    <color name="colorBotonesTruco">#FFEE58</color>
-    <color name="colorBotonesBurako">#4fc3f7</color>
-    <color name="colorBotonesGeneral">@color/colorAccent</color>
-    <color name="colorTransparente">#FFFFFFFF</color>
+    <color name="colorPrimary">#4DB6AC</color>
+    <color name="colorPrimaryDark">#00796b</color>
+    <color name="colorSecondary">#b2dfdb</color>
+    <color name="colorAccent">#ac4db6</color>
+    <color name="colorBackground">@color/colorBlanco</color>
+
+
+    <color name="colorClaro">#F9FFFE</color>
     <color name="colorGris">#616161</color>
     <color name="colorNegro"> #000000</color>
+    <color name="colorBlanco"> #FFFFFF</color>
+    <color name="colorTransparente">#FFFFFFFF</color>
+
+    <color name="colorBotonesTruco">@color/colorSecondary</color>
+    <color name="colorBotonesGeneral">@color/colorPrimary</color>
+
+
 
 </resources>

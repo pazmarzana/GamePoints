@@ -4,18 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorClaro"
     tools:context=".MenuActivity">
 
     <Button
         android:id="@+id/buttonTruco"
+        style="@style/MenuButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="#179C27B0"
-        android:elevation="20dp"
         android:onClick="truco"
-        android:padding="10dp"
         android:text="Truco"
-
         app:layout_constraintBottom_toTopOf="@+id/buttonGenerico"
         app:layout_constraintEnd_toStartOf="@+id/buttonBurako"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,12 +21,10 @@
 
     <Button
         android:id="@+id/buttonBurako"
+        style="@style/MenuButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="#179C27B0"
-        android:elevation="20dp"
         android:onClick="burako"
-        android:padding="10dp"
         android:text="Burako"
 
         app:layout_constraintBottom_toBottomOf="@+id/buttonTruco"
@@ -37,17 +33,14 @@
 
     <Button
         android:id="@+id/buttonGenerico"
+        style="@style/MenuButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="#179C27B0"
-        android:elevation="20dp"
         android:onClick="generico"
-        android:padding="10dp"
         android:text="Juego Generico"
         app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonTruco" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineHorizontal1"
@@ -108,7 +101,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/textViewNombres2"
         app:layout_constraintEnd_toStartOf="@+id/nombreTeam1"
-                app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewBienvenida" />
 
     <TextView

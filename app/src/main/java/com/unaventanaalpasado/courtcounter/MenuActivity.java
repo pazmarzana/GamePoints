@@ -55,5 +55,12 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    public void generala(View v){
+        Intent intent = new Intent(this, MainActivity.class);
+        TextView view = findViewById(R.id.nombreTeam1);
+        intent.putExtra("NombreTeam1",view.getText()+"");
+        TextView view2 = findViewById(R.id.nombreTeam2);
+        intent.putExtra("NombreTeam2",view2.getText()+"");
+        startActivity(intent);
+    }
 }
